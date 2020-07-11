@@ -1,7 +1,6 @@
 import { fromEvent } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-(()=>{
 // initialize elements
 const canvas = document.querySelector('canvas')
 const canvasCtx = canvas.getContext('2d')
@@ -9,6 +8,7 @@ const decrementButton = document.getElementById('decrement')
 const incrementButton = document.getElementById('increment')
 const clearButton = document.getElementById('clear')
 const count = document.getElementById('count')
+
 let brushWidth = 5;
 count.value = brushWidth;
 
@@ -34,6 +34,21 @@ const clearCanvas = () => {
     canvasCtx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
+// drawing options
+const increment = ()=>{
+    if (brushWidth < 80) {
+        brushWidth++
+        count.value = brushWidth
+    }
+}
+
+const decrement = ()=> {
+    if (brushWidth > 1) {
+        brushWidth--
+        count.value = brushWidth
+    }
+}
+
 // stream handlers
 rectangle$
     .pipe(map(dataConverter))
@@ -43,18 +58,7 @@ clear$
     .subscribe(clearCanvas)
 
 decrement$
-    .subscribe(()=>{
-        if (brushWidth > 1) {
-            brushWidth--
-            count.value = brushWidth
-        }
-    })
+    .subscribe(decrement)
     
-    increment$
-    .subscribe(()=>{
-        if (brushWidth < 80) {
-            brushWidth++
-            count.value = brushWidth
-        }
-    })
-})()
+increment$
+    .subscribe(increment)
