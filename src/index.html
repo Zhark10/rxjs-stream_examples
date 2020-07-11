@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Drawing via rxjs</title>
 </head>
-<body style="margin: 0;">
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh">
-        <h1>DRAW SOMETHING</h1>
-        <canvas width="500" height="500" style="border: 5px solid #000; border-radius: 50px;"></canvas>
-        <button style='margin: 12px; padding: 12px; min-width: 200px; border-radius: 50px; background-color: #000; cursor: pointer; color: white; font-weight: 800;'>
-            CLEAR CANVAS
-        </button>
+<body style='margin: 0;'>
+    <div style='display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh'>
+        <h1>DRAW SOMETHING...</h1>
+        <canvas width='500' height='500' style='border: 5px solid #000; border-radius: 50px;'></canvas>
+        
+        <div style='display: flex;'>
+            <div style='margin: 12px; display: flex;'>
+                <button id='decrement' style='padding: 12px; width: 43px; height: 43px; border-radius: 50px 0 0 50px; background-color: #000; cursor: pointer; color: white; font-weight: 800; font-size: 24px; line-height: 0.7;'>
+                    -
+                </button>
+
+                <input id='count' style='width: 50px; height: 43px; font-size: 16px; font-weight: 900; border: none; text-align: center;' value='5'></input>
+
+                <button id='increment' style='padding: 12px; width: 43px; height: 43px; border-radius: 0 50px 50px 0; background-color: #000; cursor: pointer; color: white; font-weight: 800; font-size: 24px; line-height: 0.7;'>
+                    +
+                </button>
+            </div>
+            
+            <button id='clear' style='margin: 12px; padding: 12px; min-width: 200px; border-radius: 50px; background-color: #000; cursor: pointer; color: white; font-weight: 800;'>
+                CLEAR CANVAS
+            </button>
+        </div>
     </div>
 </body>
 </html>
